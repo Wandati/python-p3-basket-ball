@@ -182,3 +182,61 @@ def game_dict():
             ]
         }
     }
+
+def num_points_per_game(name):
+    
+    for player in game_dict()["home"]["players"]:
+        if player["name"] == name:
+            return(player["points_per_game"])
+    for player in game_dict()["away"]["players"]:
+        if player["name"] == name:
+            return player["points_per_game"]
+    
+     
+# print(num_points_per_game("Jarrett Allen"))
+# print(num_points_per_game("Kristaps Porzingis"))
+
+def team_colours(team_name):
+    if team_name == game_dict()["home"]["team_name"]:
+        return game_dict()["home"]["colors"]
+    elif team_name == game_dict()["away"]["team_name"]:
+        return game_dict()["away"]["colors"]
+        
+# print(team_colours('Washington Wizards'))   
+# print(team_colours('Cleveland Cavaliers')) 
+def team_names():
+    return [game_dict()["home"]["team_name"],game_dict()["away"]["team_name"]]
+    
+# print(team_names())
+def player_numbers(team_name):
+    jersey_numbers= []
+    if team_name == game_dict()["home"]["team_name"]:
+        # jersey_numbers = []
+        for jersey in game_dict()["home"]["players"]:
+            jersey_numbers.append(jersey["number"])
+    # return jersey_numbers
+    elif team_name == game_dict()["away"]["team_name"]:
+        # jersey_numbers2= []
+        for jersey in game_dict()["away"]["players"]:
+            jersey_numbers.append(jersey["number"])  
+    return jersey_numbers  
+
+# print(player_numbers('Cleveland Cavaliers'))
+# print(player_numbers('Washington Wizards'))
+def player_stats(players_name):
+    for player in game_dict()["home"]["players"]:
+
+        if players_name == player["name"]:
+            
+            return player
+    for player in game_dict()["away"]["players"]:
+
+        if players_name == player["name"]:
+            
+            return player
+        
+# print(player_stats("Jarrett Allen")) 
+# print(player_stats("Bradley Beal")) 
+
+    
+         
